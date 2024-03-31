@@ -1,4 +1,22 @@
-# Generate Restaurant
+# Generate Genres
+puts 'Removing all genres from the DB...'
+Genre.destroy_all
+puts 'Getting all genres'
+
+genres_info = [
+  { name: 'Japanese' },
+  { name: 'Italian' },
+  { name: 'Indian' }
+]
+# genres = genres_info.map { |info| Genre.new(info) }
+
+genres_info.each do |info|
+  Genre.create(info)
+end
+
+puts 'Genres have been created'
+
+# Generate Restaurants
 require 'json'
 
 puts 'Removing all restaurants from the DB...'
