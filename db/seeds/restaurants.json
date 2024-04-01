@@ -1,0 +1,9 @@
+{
+  "restaurants": [
+    {
+    "name": "Waku Waku Zushi",
+    "address": "1-2-3 Shibuya, Shibuya City, Tokyo 123-4567",
+    "genre_id": 1
+    }
+  ]
+  }
