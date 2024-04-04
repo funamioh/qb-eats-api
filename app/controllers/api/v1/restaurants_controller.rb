@@ -26,6 +26,15 @@ class Api::V1::RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.destroy
+      render json: { message: 'Restaurant successfully deleted.' }, status: :ok
+    else
+      render json: { error: 'Failed to delete the restaurant.' }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def restaurant_params
