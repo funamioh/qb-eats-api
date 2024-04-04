@@ -2,10 +2,17 @@ class Api::V1::GenresController < ApplicationController
   def index
     if params[:name].present?
       @genres = Genre.where('name ILIKE ?', "%#{params[:name]}%")
+    # elsif params[:id].present?
+    #   @genres = Genre.find(id: params[:id])
     else
       @genres = Genre.all
     end
     render json: @genres.order(created_at: :desc)
+  end
+
+  def show
+    @genre = Genre.find(params[:id])
+    render json: @genre
   end
 
   def create

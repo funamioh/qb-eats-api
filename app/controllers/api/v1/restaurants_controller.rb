@@ -8,6 +8,11 @@ class Api::V1::RestaurantsController < ApplicationController
     render json: @restaurants.order(created_at: :desc)
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    render json: @restaurant
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
