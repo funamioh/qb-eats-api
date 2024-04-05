@@ -38,7 +38,7 @@ class Api::V1::GenresController < ApplicationController
     if @genre.destroy
       render json: { message: 'Genre successfully deleted.' }, status: :ok
     else
-      render json: { error: 'Failed to delete the restaurant.' }, status: :unprocessable_entity
+      render json: { error: 'Failed to delete the genre.' }, status: :unprocessable_entity
     end
   end
 
