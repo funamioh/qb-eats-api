@@ -38,3 +38,31 @@ restaurants['restaurants'].each do |restaurant_hash|
 end
 
 puts "...created #{Restaurant.count} restaurants!"
+
+# Generate vehicles
+puts 'removing all vehicles from DB...'
+Vehicle.destroy
+puts 'getting all vehicles'
+
+vehicles_info = [
+  { type: 'car' },
+  { type: 'motorcycle' },
+  { type: 'bicycle' },
+  { type: 'foot' }
+]
+
+vehicles_info.each do |info|
+  Vehicle.create(info)
+end
+
+# Generate delivery_staff
+puts 'Removing all deliver_staff from the DB...'
+DeliveryStaff.destroy_all
+puts 'Getting all deliver_staff'
+
+20.times do |n|
+  DeliveryStaff.create!(
+    name: "#{Faker::Name.unique.first_name} #{Faker::Name.unique.last_name}",
+    vehicle_id: rand(1..4)
+  )
+end
